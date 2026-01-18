@@ -29,7 +29,7 @@ while True:
         print("You wins !! 🤭")
         continue
     elif user == options[random_number]:
-        print('Math Draw ! 😬')
+        print('Match Draw ! 😬')
         continue
     else:
         print('You lost..!🤧🤧')
