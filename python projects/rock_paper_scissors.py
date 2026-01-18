@@ -34,17 +34,18 @@ while True:
     else:
         print('You lost..!🤧🤧')
         computer_wins += 1
+
     if user_wins == 5:
       print("Final Winner : (You)🤑🤠")
       print("Your Point : ",user_wins)
       print("Computer Point : ",computer_wins)
-    elif computer_wins == 5:
+    if computer_wins == 5:
         print("Final winner : (computer)🤖☠️☠️")
         print("Your Point : ",user_wins)
         print("Computer Point : ",computer_wins)
         break
 
-print("Goodbye..!!")
+print("Goodbye..!!") 
 
     
 
