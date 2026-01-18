@@ -8,10 +8,10 @@ while True:
     if guess == random_number:
         print("You got it!")
         break
-    else:
-        if guess > random_number:
+    
+    elif guess > random_number:
             print("You were above the number")
-        else:
+    else:
             print("You were below the number..")
     
 print(f"You got correct after {guesses} guesses.....:)\n")
