@@ -7,3 +7,5 @@ print(scaler.fit(data))
 print(scaler.data_max_)
 print(scaler.data_min_)
 print(scaler.transform(data))
+
+
