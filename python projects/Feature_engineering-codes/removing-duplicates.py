@@ -7,6 +7,7 @@ data = {
 df = pd.DataFrame(data)
 print("Original Dataframe : ")
 print(df.to_string(index=False))
+
 print("Duplicates rows : ")
 print(df[df.duplicated(subset=['A'])].to_string(index=False))
 df.drop_duplicates(subset=['A'],keep='first',inplace=True)

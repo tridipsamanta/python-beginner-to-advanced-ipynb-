@@ -1,16 +1,19 @@
 import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
+
+from category_encoders import TargetEncoder
 
 data = pd.DataFrame({
-    'Text':[
-        'Cats are running quickly',
-        'Dogs are barking loudly',
-        'They study in the university',
-        'They are enjoying the holidays'
-    ]
+    'Fruit':['banana','apple','orrange','apple','mango'],
+    'Color':['red','blue','green','red','black']
 })
+
+print('Original dataframe : ')
 print(data)
-vectorizer = TfidfVectorizer()
-x = vectorizer.fit_transform(data['Text'])
-bow_df = pd.DataFrame(x.toarray(),columns=vectorizer.get_feature_names_out())
-print(bow_df)
+
+labelencoder = TargetEncoder(cols=['Fruit','Color'])
+
+data_encoded = data.copy()
+
+data_encoded[['Fruit','Color']] = labelencoder.fit_transform(data[['Fruit','Color']],data['Fruit'])
+print('After lebel encoding : ')
+print(data_encoded)
