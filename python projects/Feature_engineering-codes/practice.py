@@ -1,19 +1,15 @@
 import pandas as pd
-
-from category_encoders import TargetEncoder
-
+from sklearn.preprocessing import PolynomialFeatures
 data = pd.DataFrame({
-    'Fruit':['banana','apple','orrange','apple','mango'],
-    'Color':['red','blue','green','red','black']
+    'X1':[2,4,6,3,5],
+    'X2':[3,5,7,8,10]
 })
 
-print('Original dataframe : ')
+print("Original DataFrame ..")
 print(data)
 
-labelencoder = TargetEncoder(cols=['Fruit','Color'])
-
-data_encoded = data.copy()
-
-data_encoded[['Fruit','Color']] = labelencoder.fit_transform(data[['Fruit','Color']],data['Fruit'])
-print('After lebel encoding : ')
-print(data_encoded)
+poly = PolynomialFeatures(degree=2,include_bias=False)
+poly_feature = poly.fit_transform(data)
+name = poly.get_feature_names_out(['X1','X2'])
+final = pd.DataFrame(poly_feature,columns=name)
+print(final)
