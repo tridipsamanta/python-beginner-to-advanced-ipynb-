@@ -1,4 +1,5 @@
-import pyttsx3
-engine = pyttsx3.init()
-engine.say("my name is tridip")
-engine.runAndWait()
+def factorial(num):
+    if num==1 or num==0:
+        return 1
+    else:
+        return num*factorial(num-1)
